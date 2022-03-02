@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
   const cars = useSelector(selectCars);
- 
+  const solarTypes = ["solar roof","solar panels"];
   return (
     <Container>
       <a>
@@ -19,6 +19,12 @@ function Header() {
         {cars && cars.map((car, index) => (
           <a key={index} href='#'>{car}</a>
         ))}
+        {solarTypes.map((val,index)=>(
+          <a key={index} href="#">{val}</a>
+        ))}
+
+        {/* <a>solar roof</a>
+        <a>solar panels</a> */}
       </Menu>
       <RightMenu>
         <a href="#">Shop</a>
@@ -38,14 +44,6 @@ function Header() {
         <li><a href=''>Cybertruck</a></li>
         <li><a href=''>Roadster</a></li>
         <li><a href=''>Semi</a></li>
-        <li><a href=''>Chargin</a></li>
-        <li><a href=''>Power</a></li>
-        <li><a href=''>Uitilities</a></li>
-        <li><a href=''>Test Drive</a></li>
-        <li><a href=''>Test Drive</a></li>
-        <li><a href=''>Test Drive</a></li>
-        <li><a href=''>Test Drive</a></li>
-        <li><a href=''>Test Drive</a></li>
       </BurgerNav>
     </Container>
   )
@@ -116,6 +114,7 @@ const BurgerNav = styled.div`
   li{
     padding:15px 0;
     border-bottom:1px solid rgba(0, 0, 0, .2);
+    text-transform:uppercase;
   }
 
   a{
